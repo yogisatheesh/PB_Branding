@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricilla Bilavendran — QA Leader, Speaker & Mentor</title>
+  <meta name="description" content="Pricilla Bilavendran is a QA leader, international speaker, Postman Supernova, AWS Community Builder, and mentor making software worth trusting." />
+  <meta property="og:title" content="Pricilla Bilavendran — QA Leader, Speaker & Mentor" />
+  <meta property="og:description" content="Making Software Worth Trusting. QA leader, speaker, and mentor." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      background: #ffffff;
+      color: #0f0a14;
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+    ul { list-style: none; }
+
+    /* ── TOKENS ─────────────────────────────────────────── */
+    :root {
+      --ink:      #0f0a14;
+      --paper:    #ffffff;
+      --paper-2:  #faf5ff;
+      --purple:   #6B21A8;
+      --pink:     #E91E8C;
+      --purple-lt:#f3e8ff;
+      --pink-lt:  #fce7f3;
+      --muted:    rgba(15,10,20,0.52);
+      --border:   rgba(107,33,168,0.13);
+      --border-2: rgba(107,33,168,0.24);
+      --serif:    'DM Serif Display', Georgia, serif;
+      --sans:     'DM Sans', sans-serif;
+      --r:        12px;
+      --rl:       20px;
+    }
+
+    /* ── LAYOUT ─────────────────────────────────────────── */
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 2rem; }
+    .section   { padding: 6rem 0; }
+    .section-sm { padding: 4rem 0; }
+
+    /* ── TYPOGRAPHY ─────────────────────────────────────── */
+    h1,h2,h3,h4 { font-family: var(--serif); font-weight: 400; line-height: 1.15; }
+    h1 { font-size: clamp(2.8rem, 6vw, 5.4rem); }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 3rem); }
+    h3 { font-size: 1.35rem; }
+    h4 { font-size: 1.05rem; }
+    p  { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple);
+      font-weight: 500;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ── REVEAL ─────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(.16,1,.3,1), transform 0.7s cubic-bezier(.16,1,.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.08s; }
+    .reveal-delay-2 { transition-delay: 0.16s; }
+    .reveal-delay-3 { transition-delay: 0.24s; }
+    .reveal-delay-4 { transition-delay: 0.32s; }
+
+    /* ── BUTTONS ─────────────────────────────────────────── */
+    .btn-pink {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--pink); color: #fff;
+      font-size: 0.9rem; font-weight: 500;
+      padding: 0.85rem 1.75rem; border-radius: 100px;
+      transition: opacity .2s, transform .2s;
+      letter-spacing: 0.02em;
+    }
+    .btn-pink:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .btn-purple {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--purple); color: #fff;
+      font-size: 0.9rem; font-weight: 500;
+      padding: 0.85rem 1.75rem; border-radius: 100px;
+      transition: opacity .2s, transform .2s;
+      letter-spacing: 0.02em;
+    }
+    .btn-purple:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      color: var(--purple); font-size: 0.9rem; font-weight: 400;
+      padding: 0.85rem 1.75rem; border-radius: 100px;
+      border: 1.5px solid rgba(107,33,168,0.35);
+      transition: background .2s, border-color .2s, transform .2s;
+      letter-spacing: 0.02em;
+    }
+    .btn-outline:hover { background: var(--purple-lt); border-color: rgba(107,33,168,0.5); transform: translateY(-2px); }
+
+    /* ── TAGS / PILLS ────────────────────────────────────── */
+    .tag {
+      font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--purple); background: var(--purple-lt);
+      border: 1px solid rgba(107,33,168,0.15);
+      padding: 0.22rem 0.75rem; border-radius: 100px; display: inline-block;
+    }
+    .tag-pink {
+      font-size: 0.7rem; letter-spacing: 0.07em; text-transform: uppercase;
+      color: var(--pink); background: var(--pink-lt);
+      border: 1px solid rgba(233,30,140,0.15);
+      padding: 0.22rem 0.75rem; border-radius: 100px; display: inline-block;
+    }
+
+    /* ══════════════════════════════════════════════════════
+       NAV
+    ══════════════════════════════════════════════════════ */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.1rem 0;
+      transition: background .4s, border-color .4s, box-shadow .4s;
+      border-bottom: 1px solid transparent;
+    }
+    #nav.scrolled {
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(16px);
+      border-color: var(--border);
+      box-shadow: 0 1px 20px rgba(107,33,168,0.07);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+
+    /* logo */
+    .nav-logo { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; }
+    .nav-logo img { display: block; flex-shrink: 0; border-radius: 4px; }
+    .nav-logo .wordmark { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); line-height: 1; }
+    .nav-logo .wordmark span { color: var(--purple); }
+
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-size: 0.84rem; color: var(--muted); letter-spacing: 0.03em; transition: color .2s; }
+    .nav-links a:hover { color: var(--purple); }
+
+    .nav-cta {
+      font-size: 0.84rem; font-weight: 500; color: #fff;
+      background: var(--pink); padding: 0.5rem 1.3rem;
+      border-radius: 100px; transition: opacity .2s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; width: 24px; cursor: pointer; }
+    .nav-toggle span { display: block; height: 1.5px; background: var(--ink); border-radius: 2px; }
+
+    /* mobile menu */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: rgba(255,255,255,0.98); z-index: 99;
+      flex-direction: column; align-items: center; justify-content: center; gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-family: var(--serif); font-size: 1.8rem; color: var(--ink); opacity: 0.65; transition: opacity .2s; }
+    .mobile-menu a:hover { opacity: 1; }
+    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; font-size: 1.8rem; color: var(--muted); cursor: pointer; }
+
+    /* ══════════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════════ */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 8rem 0 5rem;
+      position: relative; overflow: hidden;
+      background: linear-gradient(135deg, #ffffff 55%, #fdf0ff 100%);
+    }
+    #hero::before {
+      content: ''; position: absolute; top: -15%; right: -8%;
+      width: 55%; height: 75%;
+      background: radial-gradient(ellipse, rgba(107,33,168,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    #hero::after {
+      content: ''; position: absolute; bottom: -10%; left: -5%;
+      width: 40%; height: 55%;
+      background: radial-gradient(ellipse, rgba(233,30,140,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.73rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--purple); border: 1px solid rgba(107,33,168,0.28);
+      padding: 0.38rem 1rem; border-radius: 100px; margin-bottom: 1.75rem;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px; background: var(--pink);
+      border-radius: 50%; animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.8)} }
+
+    .hero-headline { font-size: clamp(3rem, 6vw, 5.4rem); line-height: 1.06; letter-spacing: -0.02em; margin-bottom: 1rem; color: var(--ink); }
+    .hero-headline em { font-style: italic; color: var(--pink); }
+    .hero-sub { font-size: clamp(1rem, 1.8vw, 1.2rem); color: var(--muted); margin-bottom: 2.25rem; max-width: 460px; line-height: 1.7; }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 3rem; }
+
+    .hero-socials { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    .hero-socials a { display: flex; align-items: center; gap: 0.35rem; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.06em; text-transform: uppercase; transition: color .2s; }
+    .hero-socials a:hover { color: var(--purple); }
+    .hero-socials a svg { width: 14px; height: 14px; }
+
+    /* photo */
+    .hero-photo-wrap { position: relative; }
+    .hero-photo-frame {
+      border-radius: var(--rl); overflow: hidden;
+      aspect-ratio: 4/5; background: var(--purple-lt);
+      border: 1px solid var(--border);
+    }
+    .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+    .hero-photo-placeholder {
+      width: 100%; height: 100%; min-height: 380px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 0.75rem; color: var(--muted); font-size: 0.82rem;
+    }
+    .hero-accent-line {
+      position: absolute; top: -1.2rem; right: -1.2rem;
+      width: 70px; height: 70px;
+      border-top: 2.5px solid var(--purple); border-right: 2.5px solid var(--purple);
+      border-radius: 0 var(--r) 0 0;
+    }
+    .hero-float-card {
+      position: absolute; bottom: -1.2rem; left: -1.8rem;
+      background: #fff; border: 1px solid var(--border-2);
+      border-radius: var(--r); padding: 0.9rem 1.3rem;
+      min-width: 180px; box-shadow: 0 8px 28px rgba(107,33,168,0.12);
+    }
+    .hero-float-card .stat { font-family: var(--serif); font-size: 1.7rem; color: var(--purple); }
+    .hero-float-card .stat-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase; }
+
+    /* ── TICKER ─────────────────────────────────────────── */
+    .ticker-wrap {
+      overflow: hidden; padding: 1.1rem 0;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      background: rgba(107,33,168,0.03);
+    }
+    .ticker-track { display: flex; animation: ticker 30s linear infinite; white-space: nowrap; }
+    .ticker-item { flex-shrink: 0; display: flex; align-items: center; gap: 2rem; padding: 0 2rem; font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .ticker-dot { width: 4px; height: 4px; background: var(--pink); border-radius: 50%; flex-shrink: 0; }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ══════════════════════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════════════════════ */
+    #about { background: var(--paper-2); }
+    .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 5rem; align-items: start; }
+    .about-quote {
+      font-family: var(--serif); font-size: clamp(1.4rem, 2.5vw, 2rem);
+      line-height: 1.35; font-style: italic; color: var(--purple);
+      position: relative; padding-left: 1.6rem;
+    }
+    .about-quote::before {
+      content: ''; position: absolute; left: 0; top: 0.2em;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--purple), var(--pink), transparent);
+      border-radius: 2px;
+    }
+    .about-attribution { margin-top: 1rem; font-size: 0.76rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink); }
+    .about-bio p { margin-bottom: 1.1rem; }
+    .about-facts { display: flex; flex-direction: column; }
+    .fact-item { display: flex; gap: 1rem; align-items: flex-start; padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+    .fact-item:last-child { border-bottom: none; }
+    .fact-num { font-family: var(--serif); font-size: 0.82rem; color: var(--pink); flex-shrink: 0; width: 1.5rem; margin-top: 0.1rem; }
+    .fact-text { font-size: 0.94rem; color: var(--muted); line-height: 1.65; }
+    .fact-text strong { color: var(--ink); font-weight: 500; }
+
+    /* ══════════════════════════════════════════════════════
+       EXPERTISE
+    ══════════════════════════════════════════════════════ */
+    #expertise { background: #fff; }
+    .expertise-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+    .expertise-card {
+      background: var(--paper-2); border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 2.25rem 1.75rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .expertise-card:hover { transform: translateY(-4px); border-color: var(--border-2); box-shadow: 0 12px 30px rgba(107,33,168,0.1); }
+    .expertise-icon { width: 42px; height: 42px; border-radius: 10px; background: var(--purple-lt); display: flex; align-items: center; justify-content: center; }
+    .expertise-icon svg { width: 20px; height: 20px; stroke: var(--purple); fill: none; stroke-width: 1.6; }
+    .expertise-card h3 { font-size: 1.05rem; color: var(--purple); font-family: var(--serif); }
+    .expertise-card p { font-size: 0.86rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .expertise-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    /* ══════════════════════════════════════════════════════
+       SERVICES
+    ══════════════════════════════════════════════════════ */
+    #services { background: var(--paper-2); }
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .service-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 2.5rem 2rem;
+      display: flex; flex-direction: column; gap: 1.25rem;
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(107,33,168,0.1); border-color: var(--border-2); }
+    .service-num { font-family: var(--serif); font-size: 2.5rem; color: var(--purple-lt); line-height: 1; }
+    .service-card h3 { font-size: 1.15rem; color: var(--purple); font-family: var(--serif); }
+    .service-card p { font-size: 0.88rem; color: var(--muted); flex: 1; line-height: 1.7; }
+    .service-price { font-size: 0.78rem; color: var(--pink); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+    .service-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; color: var(--pink); font-weight: 500; transition: gap .2s; margin-top: auto; }
+    .service-cta:hover { gap: 0.7rem; }
+
+    /* ══════════════════════════════════════════════════════
+       COURSES
+    ══════════════════════════════════════════════════════ */
+    #courses { background: #fff; }
+    .course-feature {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+      align-items: center;
+      background: var(--paper-2); border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 3.5rem;
+    }
+    .course-img {
+      aspect-ratio: 4/3; border-radius: var(--r); overflow: hidden;
+      background: linear-gradient(135deg, var(--purple-lt) 0%, var(--pink-lt) 100%);
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid var(--border);
+    }
+    .course-img-inner { text-align: center; padding: 2rem; }
+    .course-img-inner svg { width: 64px; height: 64px; stroke: var(--purple); fill: none; stroke-width: 1.2; margin: 0 auto 1rem; }
+    .course-img-inner p { font-size: 0.78rem; color: var(--purple); font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; }
+    .course-body { display: flex; flex-direction: column; gap: 1.25rem; }
+    .course-body h3 { font-size: 1.6rem; color: var(--ink); font-family: var(--serif); line-height: 1.25; }
+    .course-body p { font-size: 0.94rem; color: var(--muted); }
+    .course-points { display: flex; flex-direction: column; gap: 0.6rem; }
+    .course-point { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.88rem; color: var(--muted); }
+    .course-point::before { content: ''; width: 6px; height: 6px; background: var(--pink); border-radius: 50%; flex-shrink: 0; margin-top: 0.55rem; }
+    .course-meta { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .course-meta-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; color: var(--muted); }
+    .course-meta-item svg { width: 14px; height: 14px; stroke: var(--purple); fill: none; stroke-width: 1.5; flex-shrink: 0; }
+    .coming-soon-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; margin-top: 3rem; }
+    .cs-card {
+      border: 1.5px dashed rgba(107,33,168,0.2); border-radius: var(--r);
+      padding: 1.75rem; display: flex; flex-direction: column; gap: 0.6rem;
+      opacity: 0.7;
+    }
+    .cs-card h4 { font-size: 0.95rem; color: var(--purple); font-family: var(--sans); font-weight: 500; }
+    .cs-card p { font-size: 0.82rem; color: var(--muted); }
+
+    /* ══════════════════════════════════════════════════════
+       SPEAKING
+    ══════════════════════════════════════════════════════ */
+    #speaking { background: var(--paper-2); }
+    .speaking-upcoming {
+      background: #fff; border: 1px solid rgba(233,30,140,0.22);
+      border-radius: var(--rl); padding: 2.25rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+      position: relative; overflow: hidden; margin-bottom: 3.5rem;
+    }
+    .speaking-upcoming::before { content: 'UPCOMING'; position: absolute; top: 1.1rem; right: 1.4rem; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--pink); font-weight: 500; }
+    .upcoming-conf { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink); margin-bottom: 0.4rem; }
+    .upcoming-title { font-family: var(--serif); font-size: clamp(1rem,1.8vw,1.35rem); color: var(--ink); margin-bottom: 0.65rem; line-height: 1.3; }
+    .upcoming-details { font-size: 0.82rem; color: var(--muted); display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .upcoming-details span { display: flex; align-items: center; gap: 0.35rem; }
+
+    .year-filter { display: flex; gap: 0.6rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .year-btn { font-size: 0.78rem; color: var(--muted); border: 1px solid var(--border); padding: 0.35rem 1rem; border-radius: 100px; cursor: pointer; transition: all .2s; font-family: var(--sans); background: transparent; }
+    .year-btn:hover, .year-btn.active { color: #fff; background: var(--pink); border-color: var(--pink); }
+
+    .talks-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.1rem; }
+    .talk-card { background: #fff; border: 1px solid var(--border); border-radius: var(--r); padding: 1.6rem; display: flex; flex-direction: column; gap: 0.65rem; transition: border-color .2s, box-shadow .2s; }
+    .talk-card:hover { border-color: var(--border-2); box-shadow: 0 6px 20px rgba(107,33,168,0.08); }
+    .talk-conf { font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink); font-weight: 500; }
+    .talk-title { font-size: 0.92rem; color: var(--ink); line-height: 1.45; font-weight: 400; }
+    .talk-meta { font-size: 0.76rem; color: var(--muted); margin-top: auto; }
+    .talk-link { font-size: 0.74rem; color: var(--purple); display: inline-flex; align-items: center; gap: 0.3rem; transition: gap .2s; }
+    .talk-link:hover { gap: 0.55rem; }
+
+    /* ══════════════════════════════════════════════════════
+       ACHIEVEMENTS
+    ══════════════════════════════════════════════════════ */
+    #achievements { background: #fff; }
+    .stats-row { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: var(--rl); overflow: hidden; margin-bottom: 4rem; }
+    .stat-cell { background: #fff; padding: 2.25rem 1.75rem; display: flex; flex-direction: column; gap: 0.4rem; transition: background .2s; }
+    .stat-cell:hover { background: var(--purple-lt); }
+    .stat-num { font-family: var(--serif); font-size: 2.8rem; color: var(--purple); line-height: 1; }
+    .stat-num span { color: var(--pink); }
+    .stat-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.4; }
+
+    .awards-list { display: flex; flex-direction: column; }
+    .award-item { display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 1.4rem 0; border-bottom: 1px solid var(--border); gap: 2rem; }
+    .award-item:first-child { border-top: 1px solid var(--border); }
+    .award-name { font-size: 0.98rem; color: var(--ink); font-weight: 400; }
+    .award-sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; }
+    .award-year { font-family: var(--serif); font-size: 1.05rem; color: var(--pink); flex-shrink: 0; }
+
+    /* ══════════════════════════════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════════════════════════════ */
+    #testimonials { background: var(--paper-2); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.25rem; }
+    .testimonial-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 2rem 1.75rem;
+      display: flex; flex-direction: column; gap: 1.25rem;
+      transition: box-shadow .3s, transform .3s;
+    }
+    .testimonial-card:hover { box-shadow: 0 12px 30px rgba(107,33,168,0.09); transform: translateY(-3px); }
+    .testimonial-quote-mark { font-family: var(--serif); font-size: 3.5rem; color: var(--purple-lt); line-height: 0.6; flex-shrink: 0; }
+    .testimonial-text { font-size: 0.9rem; color: var(--muted); line-height: 1.75; font-style: italic; flex: 1; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.8rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .testimonial-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--purple-lt); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 0.9rem; color: var(--purple); flex-shrink: 0; }
+    .testimonial-name { font-size: 0.86rem; color: var(--ink); font-weight: 500; }
+    .testimonial-role { font-size: 0.76rem; color: var(--muted); }
+    .testimonials-cta { text-align: center; margin-top: 2.5rem; }
+
+    /* ══════════════════════════════════════════════════════
+       BLOG / CONTENT
+    ══════════════════════════════════════════════════════ */
+    #blog { background: #fff; }
+    .blog-layout { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1.75rem; }
+    .blog-featured {
+      background: var(--paper-2); border: 1px solid var(--border);
+      border-radius: var(--rl); overflow: hidden; display: block;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .blog-featured:hover { border-color: var(--border-2); box-shadow: 0 8px 24px rgba(107,33,168,0.09); }
+    .blog-featured-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: linear-gradient(135deg, var(--purple-lt), var(--pink-lt)); display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.78rem; }
+    .blog-featured-body { padding: 1.75rem; }
+    .blog-featured-body h3 { font-size: 1.3rem; color: var(--ink); margin: 0.75rem 0; line-height: 1.3; font-family: var(--serif); }
+    .blog-featured-body p { font-size: 0.86rem; color: var(--muted); }
+    .read-meta { margin-top: 1rem; font-size: 0.74rem; color: var(--muted); display: flex; gap: 1rem; }
+
+    .blog-list { display: flex; flex-direction: column; gap: 1rem; }
+    .blog-list-item { background: var(--paper-2); border: 1px solid var(--border); border-radius: var(--r); padding: 1.4rem; display: block; transition: border-color .2s, background .2s; }
+    .blog-list-item:hover { border-color: rgba(233,30,140,0.25); background: var(--pink-lt); }
+    .blog-list-item h3 { font-size: 0.92rem; color: var(--ink); line-height: 1.45; font-family: var(--sans); font-weight: 400; margin-top: 0.45rem; }
+    .blog-list-item .read-meta { margin-top: 0.5rem; font-size: 0.72rem; }
+
+    /* newsletter */
+    .newsletter-strip {
+      margin-top: 3rem; background: var(--purple-lt);
+      border: 1px solid rgba(107,33,168,0.15);
+      border-radius: var(--rl); padding: 2.25rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    }
+    .newsletter-strip h3 { font-size: 1.25rem; color: var(--purple); font-family: var(--serif); margin-bottom: 0.25rem; }
+    .newsletter-strip p { font-size: 0.84rem; color: var(--muted); }
+    .newsletter-form { display: flex; gap: 0.65rem; flex-shrink: 0; }
+    .newsletter-form input { font-family: var(--sans); font-size: 0.86rem; color: var(--ink); background: #fff; border: 1px solid var(--border-2); border-radius: 100px; padding: 0.65rem 1.3rem; width: 230px; outline: none; transition: border-color .2s; }
+    .newsletter-form input:focus { border-color: var(--purple); }
+    .newsletter-form input::placeholder { color: var(--muted); }
+    .newsletter-form button { background: var(--pink); color: #fff; font-family: var(--sans); font-size: 0.84rem; font-weight: 500; padding: 0.65rem 1.3rem; border-radius: 100px; cursor: pointer; transition: opacity .2s; white-space: nowrap; }
+    .newsletter-form button:hover { opacity: 0.88; }
+
+    /* ══════════════════════════════════════════════════════
+       CONTACT — purpose-specific CTAs
+    ══════════════════════════════════════════════════════ */
+    #contact { background: var(--paper-2); }
+    .contact-intro { max-width: 640px; margin-bottom: 3.5rem; }
+    .contact-intro h2 { margin-bottom: 0.75rem; color: var(--ink); }
+    .contact-intro p { font-size: 1rem; color: var(--muted); }
+    .contact-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; margin-bottom: 4rem; }
+    .contact-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: var(--rl); padding: 2.25rem 2rem;
+      display: flex; flex-direction: column; gap: 1rem;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .contact-card:hover { transform: translateY(-4px); border-color: var(--border-2); box-shadow: 0 12px 30px rgba(107,33,168,0.1); }
+    .contact-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .contact-icon.purple { background: var(--purple-lt); }
+    .contact-icon.pink   { background: var(--pink-lt); }
+    .contact-icon svg { width: 20px; height: 20px; fill: none; stroke-width: 1.5; }
+    .contact-icon.purple svg { stroke: var(--purple); }
+    .contact-icon.pink   svg { stroke: var(--pink); }
+    .contact-card h3 { font-size: 1.1rem; color: var(--purple); font-family: var(--serif); }
+    .contact-card p { font-size: 0.85rem; color: var(--muted); flex: 1; line-height: 1.7; }
+    .contact-cta-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 500; padding: 0.55rem 1.2rem; border-radius: 100px; transition: opacity .2s; margin-top: auto; }
+    .contact-cta-btn.purple-btn { background: var(--purple-lt); color: var(--purple); }
+    .contact-cta-btn.pink-btn { background: var(--pink-lt); color: var(--pink); }
+    .contact-cta-btn:hover { opacity: 0.78; }
+
+    /* closing CTA */
+    .contact-close { text-align: center; padding: 4rem 0 2rem; border-top: 1px solid var(--border); }
+    .contact-close h2 { color: var(--ink); margin-bottom: 0.5rem; }
+    .contact-close h2 em { color: var(--pink); font-style: italic; }
+    .contact-close p { color: var(--muted); font-size: 0.95rem; margin-bottom: 2rem; }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    footer { background: #0f0a14; border-top: 1px solid rgba(107,33,168,0.2); padding: 2.25rem 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { display: flex; align-items: center; gap: 0.5rem; }
+    .footer-copy { font-size: 0.76rem; color: rgba(255,255,255,0.38); }
+    .footer-links { display: flex; gap: 1.4rem; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.76rem; color: rgba(255,255,255,0.38); transition: color .2s; }
+    .footer-links a:hover { color: #fff; }
+
+    /* ── ACCESSIBILITY ───────────────────────────────────── */
+    :focus-visible { outline: 2.5px solid var(--purple); outline-offset: 3px; border-radius: 4px; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 960px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-photo-wrap { max-width: 380px; }
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .expertise-grid { grid-template-columns: repeat(2,1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .course-feature { grid-template-columns: 1fr; }
+      .talks-grid { grid-template-columns: repeat(2,1fr); }
+      .stats-row { grid-template-columns: repeat(2,1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .blog-layout { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .coming-soon-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+    }
+    @media (max-width: 600px) {
+      .section { padding: 4.5rem 0; }
+      .expertise-grid, .talks-grid, .coming-soon-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: 1fr 1fr; }
+      .hero-actions { flex-direction: column; }
+      .btn-pink, .btn-outline, .btn-purple { text-align: center; justify-content: center; }
+      .newsletter-strip { flex-direction: column; }
+      .newsletter-form { width: 100%; flex-direction: column; }
+      .newsletter-form input { width: 100%; }
+      .speaking-upcoming { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Skip to content (accessibility) -->
+<a href="#main-content" class="sr-only" style="position:absolute;top:0;left:0;z-index:9999;padding:0.5rem 1rem;background:var(--purple);color:#fff;font-size:0.9rem;">Skip to main content</a>
+
+<!-- ─── MOBILE MENU ─────────────────────────────────────── -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <button class="mobile-close" id="mobileClose" aria-label="Close menu">✕</button>
+  <a href="#about"        onclick="closeMobileMenu()">About</a>
+  <a href="#services"     onclick="closeMobileMenu()">Services</a>
+  <a href="#courses"      onclick="closeMobileMenu()">Courses</a>
+  <a href="#speaking"     onclick="closeMobileMenu()">Speaking</a>
+  <a href="#blog"         onclick="closeMobileMenu()">Blog</a>
+  <a href="#contact"      onclick="closeMobileMenu()">Contact</a>
+</nav>
+
+<!-- ─── NAV ────────────────────────────────────────────── -->
+<header id="nav" role="banner">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="Pricilla Bilavendran — Home">
+      <img
+        src="logo.png"
+        alt="PB Logo — Pricilla Bilavendran"
+        width="36"
+        height="36"
+        style="display:block;width:36px;height:36px;object-fit:contain;mix-blend-mode:multiply;"
+      />
+      <span class="wordmark">Pricilla<span>.</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#courses">Courses</a>
+      <a href="#speaking">Speaking</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-cta" aria-label="Contact Pricilla">Let's connect</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ─── MAIN CONTENT ────────────────────────────────────── -->
+<main id="main-content">
+
+<!-- ── HERO ─────────────────────────────────────────────── -->
+<section id="hero" aria-label="Introduction">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left -->
+      <div>
+        <div class="hero-badge reveal" aria-label="Roles">
+          QA Leader · International Speaker · Mentor
+        </div>
+        <h1 class="hero-headline reveal reveal-delay-1">
+          Making<br>Software<br><em>Worth<br>Trusting.</em>
+        </h1>
+        <p class="hero-sub reveal reveal-delay-2">
+          I'm Pricilla — a software quality advocate, Postman Supernova, and AWS Community Builder sharing everything I've learned on the journey of making software actually work.
+        </p>
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="#contact" class="btn-pink">
+            Invite me to speak
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#blog" class="btn-outline">Read my blog</a>
+        </div>
+        <div class="hero-socials reveal reveal-delay-4">
+          <a href="https://www.linkedin.com/in/pricilla-bilavendran/" target="_blank" rel="noopener" aria-label="LinkedIn profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://twitter.com/PricillaBelwin" target="_blank" rel="noopener" aria-label="Twitter profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+            Twitter
+          </a>
+          <a href="https://www.youtube.com/@pricillabilavendran" target="_blank" rel="noopener" aria-label="YouTube channel">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#fff"/></svg>
+            YouTube
+          </a>
+          <a href="https://bpricilla.medium.com/" target="_blank" rel="noopener" aria-label="Medium blog">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 15V9l8 6V9" fill="#fff"/></svg>
+            Medium
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Photo -->
+      <div class="hero-photo-wrap reveal reveal-delay-2">
+        <div class="hero-accent-line" aria-hidden="true"></div>
+        <div class="hero-photo-frame">
+          <!-- Replace with actual photo: <img src="pricilla.jpg" alt="Pricilla Bilavendran — QA Leader and Speaker" /> -->
+          <div class="hero-photo-placeholder" aria-hidden="true">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <span>Profile photo goes here</span>
+          </div>
+        </div>
+        <div class="hero-float-card" aria-label="50+ talks worldwide">
+          <div class="stat">50+</div>
+          <div class="stat-label">Talks worldwide</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── TICKER ────────────────────────────────────────────── -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-item"><span>Postman Supernova</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>AWS Community Builder</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>Globant Women That Build Award</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>WomenTech Mentor of the Year Nominee</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>Postman Community Spotlight</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>SOFTECAsia 2025 Speaker</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>Synapse QA Letter of Love Winner</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>Postman Supernova</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>AWS Community Builder</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>Globant Women That Build Award</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>WomenTech Mentor of the Year Nominee</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>Postman Community Spotlight</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>SOFTECAsia 2025 Speaker</span><span class="ticker-dot"></span></div>
+    <div class="ticker-item"><span>Synapse QA Letter of Love Winner</span><span class="ticker-dot"></span></div>
+  </div>
+</div>
+
+<!-- ── ABOUT ─────────────────────────────────────────────── -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="section-label reveal">About me</span>
+        <blockquote class="about-quote reveal reveal-delay-1">
+          "Your motivation lies between what you already have and what you want to achieve."
+        </blockquote>
+        <p class="about-attribution reveal reveal-delay-2">— Pricilla Bilavendran</p>
+      </div>
+      <div>
+        <div class="about-bio reveal">
+          <p>I've been testing software for over a decade — not just finding bugs, but championing the culture of quality. I believe great QA is invisible: when done right, users never know we existed.</p>
+          <p>Today I speak at global conferences, build communities, mentor the next generation of testers, and create courses that make testing approachable for everyone — especially women breaking into tech.</p>
+        </div>
+        <div class="about-facts">
+          <div class="fact-item reveal reveal-delay-1">
+            <span class="fact-num">01</span>
+            <p class="fact-text"><strong>10+ years</strong> in software testing — from manual QA to AI-assisted automation</p>
+          </div>
+          <div class="fact-item reveal reveal-delay-1">
+            <span class="fact-num">02</span>
+            <p class="fact-text"><strong>Postman Supernova &amp; AWS Community Builder</strong> — recognised for technical community leadership</p>
+          </div>
+          <div class="fact-item reveal reveal-delay-2">
+            <span class="fact-num">03</span>
+            <p class="fact-text">Specialises in <strong>API testing, GenAI for QA, and automation strategy</strong></p>
+          </div>
+          <div class="fact-item reveal reveal-delay-2">
+            <span class="fact-num">04</span>
+            <p class="fact-text">Active <strong>mentor</strong> on Mentoring Club and across global testing communities</p>
+          </div>
+          <div class="fact-item reveal reveal-delay-3">
+            <span class="fact-num">05</span>
+            <p class="fact-text">Open to <strong>speaking, training, consulting, and guest writing</strong> worldwide</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERTISE ──────────────────────────────────────────── -->
+<section id="expertise" class="section">
+  <div class="container">
+    <span class="section-label reveal">Expertise</span>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:3rem;">What I do best</h2>
+    <div class="expertise-grid">
+      <div class="expertise-card reveal">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        </div>
+        <h3>API &amp; Automation Testing</h3>
+        <p>Deep expertise in REST API testing, contract testing, and building scalable automation frameworks from scratch.</p>
+        <div class="expertise-tags">
+          <span class="tag">Postman</span><span class="tag">REST</span><span class="tag">Contract</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-1">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <h3>GenAI for Software Testing</h3>
+        <p>Leveraging generative AI and prompt engineering to build smarter, faster, and more intelligent QA workflows.</p>
+        <div class="expertise-tags">
+          <span class="tag">Prompt Eng.</span><span class="tag">AI-QA</span><span class="tag">GenAI</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-2">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Speaking &amp; Training</h3>
+        <p>Delivering keynotes, workshops, and sessions at global conferences — from beginner bootcamps to enterprise training.</p>
+        <div class="expertise-tags">
+          <span class="tag">Keynotes</span><span class="tag">Workshops</span><span class="tag">Training</span>
+        </div>
+      </div>
+      <div class="expertise-card reveal reveal-delay-3">
+        <div class="expertise-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3>Mentoring &amp; Community</h3>
+        <p>Building the next generation of quality engineers — with a focus on women in tech and emerging QA professionals.</p>
+        <div class="expertise-tags">
+          <span class="tag">Mentoring</span><span class="tag">Women in Tech</span><span class="tag">AWS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SERVICES ───────────────────────────────────────────── -->
+<section id="services" class="section">
+  <div class="container">
+    <span class="section-label reveal">Services</span>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:0.75rem;">How I can help you</h2>
+    <p class="reveal reveal-delay-1" style="max-width:560px;margin-bottom:3rem;">Whether you're an individual tester, an enterprise team, or an event organiser — here's how we can work together.</p>
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-num" aria-hidden="true">01</div>
+        <h3>Conference Speaking</h3>
+        <p>Keynotes and talks on API testing, GenAI for QA, quality culture, and career growth — tailored to your audience from beginner to advanced.</p>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="tag">Keynote</span><span class="tag">Workshop</span><span class="tag">Panel</span>
+        </div>
+        <a href="#contact" class="service-cta" aria-label="Enquire about speaking">
+          Invite me to speak
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num" aria-hidden="true">02</div>
+        <h3>Corporate Training</h3>
+        <p>Hands-on training programmes for QA teams — covering API testing with Postman, automation strategy, and integrating AI into your testing workflow.</p>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="tag">On-site</span><span class="tag">Remote</span><span class="tag">Custom</span>
+        </div>
+        <a href="#contact" class="service-cta" aria-label="Enquire about training">
+          Book a training
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num" aria-hidden="true">03</div>
+        <h3>QA Consulting</h3>
+        <p>Strategic advisory for teams looking to build or improve their quality engineering culture, tooling choices, and automation roadmap.</p>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="tag">Strategy</span><span class="tag">Audit</span><span class="tag">Roadmap</span>
+        </div>
+        <a href="#contact" class="service-cta" aria-label="Enquire about consulting">
+          Consulting enquiry
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-num" aria-hidden="true">04</div>
+        <h3>1:1 Mentoring</h3>
+        <p>Personalised guidance for testers at any stage — breaking into QA, levelling up skills, building a public profile, or navigating a career shift.</p>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="tag">Career</span><span class="tag">Skills</span><span class="tag">Ongoing</span>
+        </div>
+        <a href="https://www.mentoring-club.com/the-mentors/pricilla-belwin" target="_blank" rel="noopener" class="service-cta" aria-label="Book a mentoring session">
+          Book a session
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num" aria-hidden="true">05</div>
+        <h3>Guest Writing</h3>
+        <p>Long-form articles, technical tutorials, and thought-leadership pieces for testing publications, developer blogs, and community platforms.</p>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="tag">Articles</span><span class="tag">Tutorials</span><span class="tag">Thought Leadership</span>
+        </div>
+        <a href="#contact" class="service-cta" aria-label="Enquire about guest blogging">
+          Enquire for a guest blog
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num" aria-hidden="true">06</div>
+        <h3>Community Partnerships</h3>
+        <p>Open to collaborations with testing communities, podcasts, YouTube channels, and women-in-tech organisations around the world.</p>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <span class="tag">Podcast</span><span class="tag">Community</span><span class="tag">Partnership</span>
+        </div>
+        <a href="#contact" class="service-cta" aria-label="Enquire about partnerships">
+          Let's collaborate
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── COURSES ────────────────────────────────────────────── -->
+<section id="courses" class="section">
+  <div class="container">
+    <span class="section-label reveal">Courses</span>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:3rem;">Learn from the trenches</h2>
+
+    <!-- Featured course -->
+    <div class="course-feature reveal">
+      <div class="course-img" role="img" aria-label="Postman API Testing course thumbnail">
+        <div class="course-img-inner">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+          <p>Postman · API Testing</p>
+        </div>
+      </div>
+      <div class="course-body">
+        <span class="tag-pink">Live on The Test Tribe</span>
+        <h3>Postman API Testing — Zero to Hero</h3>
+        <p>A comprehensive, hands-on course that takes you from API basics to advanced testing strategies using Postman. Perfect for testers who want to master one of the most widely-used tools in the industry.</p>
+        <div class="course-points">
+          <div class="course-point">From HTTP fundamentals to automated collections</div>
+          <div class="course-point">Environment variables, pre-request scripts &amp; test assertions</div>
+          <div class="course-point">CI/CD integration with Newman and GitHub Actions</div>
+          <div class="course-point">Real-world API testing scenarios and best practices</div>
+        </div>
+        <div class="course-meta">
+          <div class="course-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            Self-paced
+          </div>
+          <div class="course-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            All levels welcome
+          </div>
+          <div class="course-meta-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            The Test Tribe platform
+          </div>
+        </div>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="https://www.thetesttribe.com/courses/postman-api-testing/" target="_blank" rel="noopener" class="btn-pink" aria-label="Enroll in Postman API Testing course">
+            Enroll now →
+          </a>
+          <a href="https://www.thetesttribe.com/courses/postman-api-testing/" target="_blank" rel="noopener" class="btn-outline" aria-label="Learn more about the course">
+            Learn more
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coming soon -->
+    <div style="margin-top:2.5rem;">
+      <h3 class="reveal" style="font-size:1.1rem;color:var(--muted);margin-bottom:1.25rem;font-family:var(--sans);font-weight:400;letter-spacing:0.03em;">Coming soon</h3>
+      <div class="coming-soon-grid">
+        <div class="cs-card reveal">
+          <span class="tag-pink">In development</span>
+          <h4>GenAI for Test Engineers</h4>
+          <p>Prompt engineering, AI-assisted test generation, and smarter QA workflows.</p>
+        </div>
+        <div class="cs-card reveal reveal-delay-1">
+          <span class="tag-pink">In development</span>
+          <h4>Contract Testing Masterclass</h4>
+          <p>End-to-end consumer-driven contract testing with Pact and Postman.</p>
+        </div>
+        <div class="cs-card reveal reveal-delay-2">
+          <span class="tag-pink">In development</span>
+          <h4>QA Career Launchpad</h4>
+          <p>Everything you need to break into software testing and build a lasting career.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SPEAKING ───────────────────────────────────────────── -->
+<section id="speaking" class="section">
+  <div class="container">
+    <span class="section-label reveal">Talks &amp; Conferences</span>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:3rem;">Speaking around<br>the world</h2>
+
+    <!-- Upcoming -->
+    <div class="speaking-upcoming reveal reveal-delay-1">
+      <div class="upcoming-meta">
+        <p class="upcoming-conf">SOFTECAsia 2025</p>
+        <h3 class="upcoming-title">PromptCraft for Test Engineers: Leveraging GenAI for Smarter Software Testing</h3>
+        <div class="upcoming-details">
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Sep 9–10, 2025
+          </span>
+          <span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Kuala Lumpur Convention Centre, Malaysia
+          </span>
+        </div>
+      </div>
+      <a href="https://mstb.org/softecasia2025/" target="_blank" rel="noopener" class="btn-outline" style="flex-shrink:0;font-size:0.82rem;padding:0.65rem 1.3rem;" aria-label="View SOFTECAsia 2025 event details">
+        Event details →
+      </a>
+    </div>
+
+    <!-- Year filter -->
+    <div class="year-filter reveal" role="group" aria-label="Filter talks by year">
+      <button class="year-btn active" data-year="all" aria-pressed="true">All</button>
+      <button class="year-btn" data-year="2024" aria-pressed="false">2024</button>
+      <button class="year-btn" data-year="2023" aria-pressed="false">2023</button>
+      <button class="year-btn" data-year="2022" aria-pressed="false">2022</button>
+      <button class="year-btn" data-year="2021" aria-pressed="false">2021</button>
+    </div>
+
+    <div class="talks-grid" id="talksGrid">
+      <article class="talk-card reveal" data-year="2024">
+        <p class="talk-conf">TestCon Europe 2024</p>
+        <h3 class="talk-title">AI-Powered Testing: From Scripts to Agents</h3>
+        <p class="talk-meta">Vilnius, Lithuania · 2024</p>
+        <a href="https://pricillabilavendran.com/my-talks/2024-2/" target="_blank" rel="noopener" class="talk-link" aria-label="Watch AI-Powered Testing talk">Watch talk →</a>
+      </article>
+      <article class="talk-card reveal reveal-delay-1" data-year="2024">
+        <p class="talk-conf">Quality Bits Podcast</p>
+        <h3 class="talk-title">GenAI &amp; the Future of Quality Engineering</h3>
+        <p class="talk-meta">Online · 2024</p>
+        <a href="https://pricillabilavendran.com/my-talks/2024-2/" target="_blank" rel="noopener" class="talk-link">Listen →</a>
+      </article>
+      <article class="talk-card reveal reveal-delay-2" data-year="2024">
+        <p class="talk-conf">AWS Community Day</p>
+        <h3 class="talk-title">Smarter Testing on the Cloud</h3>
+        <p class="talk-meta">India · 2024</p>
+        <a href="https://pricillabilavendran.com/my-talks/2024-2/" target="_blank" rel="noopener" class="talk-link">Watch talk →</a>
+      </article>
+      <article class="talk-card reveal" data-year="2023">
+        <p class="talk-conf">HUSTEF 2023</p>
+        <h3 class="talk-title">API First Testing Strategies</h3>
+        <p class="talk-meta">Budapest, Hungary · 2023</p>
+        <a href="https://pricillabilavendran.com/my-talks/2023-2/" target="_blank" rel="noopener" class="talk-link">Watch talk →</a>
+      </article>
+      <article class="talk-card reveal reveal-delay-1" data-year="2023">
+        <p class="talk-conf">TestBash</p>
+        <h3 class="talk-title">Postman for Test Engineers</h3>
+        <p class="talk-meta">Online · 2023</p>
+        <a href="https://pricillabilavendran.com/my-talks/2023-2/" target="_blank" rel="noopener" class="talk-link">Watch talk →</a>
+      </article>
+      <article class="talk-card reveal reveal-delay-2" data-year="2023">
+        <p class="talk-conf">Ministry of Testing</p>
+        <h3 class="talk-title">Contract Testing in Practice</h3>
+        <p class="talk-meta">Online · 2023</p>
+        <a href="https://pricillabilavendran.com/my-talks/2023-2/" target="_blank" rel="noopener" class="talk-link">Watch talk →</a>
+      </article>
+      <article class="talk-card reveal" data-year="2022">
+        <p class="talk-conf">STeP-IN Forum 2022</p>
+        <h3 class="talk-title">Quality Engineering as a Mindset</h3>
+        <p class="talk-meta">Bengaluru, India · 2022</p>
+        <a href="https://pricillabilavendran.com/my-talks/2022-2/" target="_blank" rel="noopener" class="talk-link">Watch talk →</a>
+      </article>
+      <article class="talk-card reveal reveal-delay-1" data-year="2022">
+        <p class="talk-conf">Postman Galaxy</p>
+        <h3 class="talk-title">Community-Led Testing Culture</h3>
+        <p class="talk-meta">Online · 2022</p>
+        <a href="https://pricillabilavendran.com/my-talks/2022-2/" target="_blank" rel="noopener" class="talk-link">Watch talk →</a>
+      </article>
+      <article class="talk-card reveal reveal-delay-2" data-year="2021">
+        <p class="talk-conf">Agile Testing Days</p>
+        <h3 class="talk-title">Survival Guide for New Testers</h3>
+        <p class="talk-meta">Online · 2021</p>
+        <a href="https://pricillabilavendran.com/my-talks/2021-2/" target="_blank" rel="noopener" class="talk-link">Watch talk →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── ACHIEVEMENTS ──────────────────────────────────────── -->
+<section id="achievements" class="section">
+  <div class="container">
+    <span class="section-label reveal">Recognition</span>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:3rem;">Awards &amp; milestones</h2>
+    <div class="stats-row reveal" role="list">
+      <div class="stat-cell" role="listitem">
+        <div class="stat-num">50<span>+</span></div>
+        <div class="stat-desc">Talks at conferences worldwide</div>
+      </div>
+      <div class="stat-cell" role="listitem">
+        <div class="stat-num">2<span>x</span></div>
+        <div class="stat-desc">AWS Community Builder</div>
+      </div>
+      <div class="stat-cell" role="listitem">
+        <div class="stat-num">10<span>+</span></div>
+        <div class="stat-desc">Years in software quality</div>
+      </div>
+      <div class="stat-cell" role="listitem">
+        <div class="stat-num">∞</div>
+        <div class="stat-desc">Mentees supported globally</div>
+      </div>
+    </div>
+    <div class="awards-list">
+      <div class="award-item reveal"><div><div class="award-name">Postman Supernova &amp; Ambassador</div><div class="award-sub">Recognised for outstanding Postman community contribution</div></div><div class="award-year">2021</div></div>
+      <div class="award-item reveal reveal-delay-1"><div><div class="award-name">AWS Community Builder</div><div class="award-sub">Selected for the program for two consecutive years</div></div><div class="award-year">2021–22</div></div>
+      <div class="award-item reveal reveal-delay-1"><div><div class="award-name">Globant Women That Build — Techfluencer</div><div class="award-sub">Nominated in the Techfluencer category</div></div><div class="award-year">2022</div></div>
+      <div class="award-item reveal reveal-delay-2"><div><div class="award-name">WomenTech Awards — Mentor of the Year</div><div class="award-sub">Nominated for exceptional mentorship impact</div></div><div class="award-year">2022</div></div>
+      <div class="award-item reveal reveal-delay-2"><div><div class="award-name">Postman Community Spotlight</div><div class="award-sub">Featured in Postman's official blog for community contributions</div></div><div class="award-year">2022</div></div>
+      <div class="award-item reveal reveal-delay-3"><div><div class="award-name">Synapse QA — Letter of Love Contest Winner</div><div class="award-sub">Winner of the community writing contest</div></div><div class="award-year">2022</div></div>
+      <div class="award-item reveal reveal-delay-3"><div><div class="award-name">Super Reads 2021 — Top 12</div><div class="award-sub">Shortlisted as one of the top 12 in Synapse QA's Super Reads</div></div><div class="award-year">2021</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ──────────────────────────────────────── -->
+<section id="testimonials" class="section">
+  <div class="container">
+    <span class="section-label reveal">Testimonials</span>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:3rem;">What people say</h2>
+    <div class="testimonials-grid">
+
+      <article class="testimonial-card reveal">
+        <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+        <p class="testimonial-text">Pricilla's talk on API testing was one of the highlights of the conference. She has a rare ability to make complex concepts feel immediately accessible and actionable. The audience was engaged from start to finish.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">AK</div>
+          <div>
+            <div class="testimonial-name">Alex Kumar</div>
+            <div class="testimonial-role">Conference Organiser, TestCon</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card reveal reveal-delay-1">
+        <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+        <p class="testimonial-text">Working with Pricilla as a mentor completely changed my trajectory in QA. She asked exactly the right questions and helped me see paths I didn't know existed. Within three months I landed my first testing role.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">SR</div>
+          <div>
+            <div class="testimonial-name">Sneha Raj</div>
+            <div class="testimonial-role">Junior QA Engineer</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card reveal reveal-delay-2">
+        <div class="testimonial-quote-mark" aria-hidden="true">"</div>
+        <p class="testimonial-text">The Postman API Testing course is hands down the most practical course I've taken. Pricilla explains concepts clearly, uses real examples, and the pacing is perfect. I refer my whole team to it.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">MP</div>
+          <div>
+            <div class="testimonial-name">Michael Pinto</div>
+            <div class="testimonial-role">QA Lead, SaaS Startup</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <div class="testimonials-cta reveal">
+      <a href="https://www.linkedin.com/in/pricilla-bilavendran/" target="_blank" rel="noopener" class="btn-outline" aria-label="Read more testimonials on LinkedIn">
+        Read more on LinkedIn →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── BLOG ──────────────────────────────────────────────── -->
+<section id="blog" class="section">
+  <div class="container">
+    <span class="section-label reveal">Content</span>
+    <h2 class="reveal reveal-delay-1" style="margin-bottom:2.5rem;">From the journal</h2>
+    <div class="blog-layout reveal">
+      <a href="https://pricillabilavendran.com" target="_blank" rel="noopener" class="blog-featured" aria-label="Read: From Scripts to Agents">
+        <div class="blog-featured-img" role="img" aria-label="Article thumbnail">Featured post thumbnail</div>
+        <div class="blog-featured-body">
+          <span class="tag-pink">GenAI · Testing</span>
+          <h3>From Scripts to Agents: The Evolution of Testing on AWS</h3>
+          <p>How generative AI is reshaping the way we think about test automation — and what it means for quality engineers.</p>
+          <div class="read-meta"><span>8 min read</span><span>March 2026</span></div>
+        </div>
+      </a>
+      <div class="blog-list">
+        <a href="https://pricillabilavendran.com" target="_blank" rel="noopener" class="blog-list-item" aria-label="Read: Contract Testing with Postman">
+          <span class="tag">API Testing</span>
+          <h3>Contract Testing with Postman: A Practical Guide</h3>
+          <div class="read-meta"><span>6 min read</span><span>Jan 2026</span></div>
+        </a>
+        <a href="https://pricillabilavendran.com" target="_blank" rel="noopener" class="blog-list-item" aria-label="Read: How I became a Postman Supernova">
+          <span class="tag">Career</span>
+          <h3>How I Became a Postman Supernova — My Community Journey</h3>
+          <div class="read-meta"><span>5 min read</span><span>Nov 2025</span></div>
+        </a>
+        <a href="https://pricillabilavendran.com" target="_blank" rel="noopener" class="blog-list-item" aria-label="Read: Stop Writing Flaky Tests">
+          <span class="tag">Automation</span>
+          <h3>Stop Writing Flaky Tests: Root Causes &amp; Real Fixes</h3>
+          <div class="read-meta"><span>7 min read</span><span>Oct 2025</span></div>
+        </a>
+        <a href="https://pricillabilavendran.com" target="_blank" rel="noopener" class="blog-list-item" aria-label="Read: Testing Serverless Applications">
+          <span class="tag">AWS</span>
+          <h3>Testing Serverless Applications: Lessons Learned</h3>
+          <div class="read-meta"><span>9 min read</span><span>Aug 2025</span></div>
+        </a>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <a href="https://pricillabilavendran.com" target="_blank" rel="noopener" class="btn-outline" aria-label="View all blog posts">View all posts →</a>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="newsletter-strip reveal">
+      <div>
+        <h3>Stay in the loop</h3>
+        <p>Testing tips, talks, and articles — straight to your inbox. No spam, ever.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm" aria-label="Newsletter subscription">
+        <label for="newsletterEmail" class="sr-only">Email address</label>
+        <input type="email" id="newsletterEmail" placeholder="your@email.com" required autocomplete="email" aria-required="true" />
+        <button type="submit" id="newsletterBtn">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ───────────────────────────────────────────── -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="contact-intro">
+      <span class="section-label reveal">Work with me</span>
+      <h2 class="reveal reveal-delay-1">Let's do something<br>great together.</h2>
+      <p class="reveal reveal-delay-2">Choose what fits — every enquiry goes straight to Pricilla, no middlemen.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card reveal">
+        <div class="contact-icon pink" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Invite me to speak</h3>
+        <p>Looking for a keynote speaker or workshop facilitator on software testing, API quality, or AI in QA? I'd love to join your event.</p>
+        <a href="https://www.linkedin.com/in/pricilla-bilavendran/" target="_blank" rel="noopener" class="contact-cta-btn pink-btn" aria-label="Send speaking invitation via LinkedIn">
+          Send speaking request →
+        </a>
+      </div>
+
+      <div class="contact-card reveal reveal-delay-1">
+        <div class="contact-icon purple" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Book a training</h3>
+        <p>Hands-on training for your QA team — API testing, automation, or GenAI for testers. On-site or remote, fully customised.</p>
+        <a href="https://www.linkedin.com/in/pricilla-bilavendran/" target="_blank" rel="noopener" class="contact-cta-btn purple-btn" aria-label="Book a team training session">
+          Book a training →
+        </a>
+      </div>
+
+      <div class="contact-card reveal">
+        <div class="contact-icon purple" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Enquire for a guest blog</h3>
+        <p>Want Pricilla to write for your publication, developer blog, or testing community? She writes long-form, technical, and accessible content.</p>
+        <a href="https://www.linkedin.com/in/pricilla-bilavendran/" target="_blank" rel="noopener" class="contact-cta-btn purple-btn" aria-label="Enquire about guest blog writing">
+          Send writing enquiry →
+        </a>
+      </div>
+
+      <div class="contact-card reveal reveal-delay-1">
+        <div class="contact-icon pink" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/></svg>
+        </div>
+        <h3>Consulting enquiry</h3>
+        <p>Looking for a QA strategy advisor? From tooling audits to automation roadmaps — let's talk about what your team needs.</p>
+        <a href="https://www.linkedin.com/in/pricilla-bilavendran/" target="_blank" rel="noopener" class="contact-cta-btn pink-btn" aria-label="Send consulting enquiry">
+          Send consulting enquiry →
+        </a>
+      </div>
+
+    </div>
+
+    <div class="contact-close reveal">
+      <h2>Say <em>hello.</em></h2>
+      <p>Not sure which option fits? Just reach out — no ask is too small.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="https://www.linkedin.com/in/pricilla-bilavendran/" target="_blank" rel="noopener" class="btn-purple" aria-label="Connect with Pricilla on LinkedIn">Connect on LinkedIn →</a>
+        <a href="https://www.mentoring-club.com/the-mentors/pricilla-belwin" target="_blank" rel="noopener" class="btn-outline" aria-label="Book a mentoring session">Book a mentoring session</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ──────────────────────────────────────────── -->
+<footer role="contentinfo">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img
+        src="logo.png"
+        alt="PB Logo — Pricilla Bilavendran"
+        width="28"
+        height="28"
+        style="display:block;width:28px;height:28px;object-fit:contain;filter:brightness(0) invert(1) sepia(1) saturate(3) hue-rotate(260deg);"
+        aria-hidden="true"
+      />
+      <p class="footer-copy">© 2026 Pricilla Bilavendran. All rights reserved.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer social links">
+      <a href="https://www.linkedin.com/in/pricilla-bilavendran/" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a href="https://twitter.com/PricillaBelwin" target="_blank" rel="noopener" aria-label="Twitter">Twitter</a>
+      <a href="https://www.youtube.com/@pricillabilavendran" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+      <a href="https://bpricilla.medium.com/" target="_blank" rel="noopener" aria-label="Medium">Medium</a>
+      <a href="https://github.com/Pricilla09" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+      <a href="https://anchor.fm/pricilla-b" target="_blank" rel="noopener" aria-label="Podcast">Podcast</a>
+      <a href="https://www.instagram.com/technuggetswithprici/" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  /* ── Scroll reveal ──────────────────────────────────── */
+  const revealObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.11 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  /* Hero reveal on load */
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => document.querySelectorAll('#hero .reveal').forEach(el => el.classList.add('visible')), 100);
+  });
+
+  /* ── Nav scroll ─────────────────────────────────────── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
+
+  /* ── Mobile menu ────────────────────────────────────── */
+  const mobileMenu = document.getElementById('mobileMenu');
+  const navToggle  = document.getElementById('navToggle');
+  const mobileClose = document.getElementById('mobileClose');
+
+  function openMobileMenu() {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    navToggle.setAttribute('aria-expanded', 'true');
+  }
+  function closeMobileMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+  navToggle?.addEventListener('click', openMobileMenu);
+  mobileClose?.addEventListener('click', closeMobileMenu);
+
+  /* ── Year filter ────────────────────────────────────── */
+  document.querySelectorAll('.year-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.year-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed','true');
+      const year = btn.dataset.year;
+      document.querySelectorAll('.talk-card').forEach(card => {
+        card.style.display = (year === 'all' || card.dataset.year === year) ? 'flex' : 'none';
+      });
+    });
+  });
+
+  /* ── Newsletter ─────────────────────────────────────── */
+  document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('newsletterBtn');
+    const original = btn.textContent;
+    btn.textContent = 'Subscribed!';
+    btn.style.background = '#6B21A8';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+      btn.disabled = false;
+      e.target.reset();
+    }, 3500);
+  });
+
+  /* ── Smooth scroll ──────────────────────────────────── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
