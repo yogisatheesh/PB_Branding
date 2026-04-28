@@ -207,7 +207,12 @@ a:focus-visible { outline-color: var(--purple); }
   transition:opacity 0.2s;
 }
 .nav-logo:hover { opacity:0.85; }
-.nav-logo img { display:block; width:38px; height:38px; object-fit:contain; border-radius:6px; }
+.nav-logo img {
+  display:block; width:52px; height:52px; object-fit:contain;
+  border-radius:0; mix-blend-mode:multiply;
+  transition:mix-blend-mode 0s, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+[data-theme="dark"] .nav-logo img { mix-blend-mode:lighten; filter:brightness(1.15) saturate(1.1); }
 .nav-wordmark { font-family:var(--serif); font-size:1.2rem; color:var(--ink); line-height:1; letter-spacing:0.01em; }
 .nav-wordmark span { color:var(--pink); }
 
@@ -247,6 +252,28 @@ a:focus-visible { outline-color: var(--purple); }
 [data-theme="dark"] .theme-toggle::after { transform:translateX(18px); background:var(--pink); }
 
 /* Mobile toggle */
+.butterfly-toggle {
+  width:36px; height:36px; border-radius:50%;
+  background:var(--purple-lt); border:1.5px solid var(--border-2);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; color:var(--purple); flex-shrink:0;
+  transition:all 0.28s cubic-bezier(0.4,0,0.2,1);
+  position:relative;
+}
+.butterfly-toggle:hover {
+  background:var(--pink); border-color:var(--pink);
+  color:#fff; transform:scale(1.12) rotate(-12deg);
+}
+.butterfly-toggle svg { width:17px; height:17px; transition:transform 0.3s; }
+.butterfly-toggle.off {
+  background:rgba(0,0,0,0.06); border-color:var(--border);
+  color:var(--muted); opacity:0.55;
+}
+[data-theme="dark"] .butterfly-toggle { background:rgba(233,74,106,0.12); color:var(--pink); border-color:rgba(233,74,106,0.25); }
+[data-theme="dark"] .butterfly-toggle:hover { background:var(--pink); color:#fff; }
+[data-theme="dark"] .butterfly-toggle.off { background:rgba(255,255,255,0.05); color:rgba(255,255,255,0.3); }
+@keyframes b-pulse { 0%,100%{box-shadow:0 0 0 0 rgba(233,74,106,0)} 50%{box-shadow:0 0 0 5px rgba(233,74,106,0.18)} }
+.butterfly-toggle.on { animation:b-pulse 2.5s ease-in-out infinite; }
 .nav-hamburger { display:none; flex-direction:column; gap:5px; width:28px; cursor:pointer; padding:4px 0; }
 .nav-hamburger span { display:block; height:2px; background:var(--ink); border-radius:2px; transition:transform 0.3s, opacity 0.3s, width 0.3s; }
 .nav-hamburger span:nth-child(2) { width:70%; }
@@ -927,7 +954,7 @@ footer {
 </head>
 <body>
 
-<canvas id="butterflyCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;" aria-hidden="true"></canvas>
+<canvas id="butterflyCanvas" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;transition:opacity 0.9s ease;" aria-hidden="true"></canvas>
 
 <a href="#main" class="sr-only">Skip to main content</a>
 
@@ -951,7 +978,7 @@ footer {
   <div class="container nav-inner">
     <!-- Logo -->
     <a href="https://pricillabilavendran.com" class="nav-logo" aria-label="Pricilla Bilavendran — Go to homepage" target="_self">
-      <img src="logo-final.jpg" alt="PB — Pricilla Bilavendran" width="54" height="54" />
+      <img src="logo-final.jpg" alt="PB — Pricilla Bilavendran" id="navLogo" width="52" height="52" />
     </a>
 
     <!-- Desktop nav links -->
@@ -968,6 +995,15 @@ footer {
     <div class="nav-right">
       <!-- Theme toggle -->
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark/light mode"></button>
+      <button class="butterfly-toggle on" id="butterflyToggle" aria-label="Turn off butterflies" title="Butterflies ON — click to turn off">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 12C10 8 5 6 3 9C1 12 4 16 8 14C10 13 11 12.5 12 12Z" fill="currentColor" opacity="0.95"/>
+          <path d="M12 12C14 8 19 6 21 9C23 12 20 16 16 14C14 13 13 12.5 12 12Z" fill="currentColor" opacity="0.95"/>
+          <path d="M12 12C10 14.5 6 14 5 17C4 20 7 22 10 20C11.5 19 12 16 12 12Z" fill="currentColor" opacity="0.72"/>
+          <path d="M12 12C14 14.5 18 14 19 17C20 20 17 22 14 20C12.5 19 12 16 12 12Z" fill="currentColor" opacity="0.72"/>
+          <ellipse cx="12" cy="13.5" rx="1" ry="3.5" fill="currentColor"/>
+        </svg>
+      </button>
       <!-- CTA -->
       <a href="#contact" class="btn btn-pink" style="font-size:0.82rem;padding:0.5rem 1.3rem;" aria-label="Get in touch">Let's connect</a>
       <!-- Hamburger -->
@@ -1578,7 +1614,7 @@ footer {
       <div style="display:flex;flex-direction:column;gap:1.5rem;">
         <div style="display:flex;align-items:center;gap:0.85rem;">
           <a href="https://pricillabilavendran.com" style="display:block;flex-shrink:0;">
-            <img src="logo-final.jpg" alt="PB Logo" style="width:52px;height:52px;object-fit:contain;border-radius:12px;display:block;" />
+            <img src="logo-final.jpg" alt="PB Logo" id="footerLogo" style="width:52px;height:52px;object-fit:contain;border-radius:0;display:block;mix-blend-mode:screen;filter:brightness(1.2) saturate(1.1);" />
           </a>
           <div>
             <div style="font-family:'Playfair Display',Georgia,serif;font-size:1.1rem;font-weight:700;color:#f0c8e0;line-height:1.1;">Pricilla Bilavendran</div>
@@ -1656,7 +1692,7 @@ footer {
   <!-- Bottom bar -->
   <div style="border-top:1px solid rgba(255,255,255,0.06);padding:1.2rem 0;position:relative;z-index:1;">
     <div style="max-width:1160px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;">
-      <p style="font-size:0.74rem;color:rgba(255,255,255,0.38);margin:0;">© 2026 Pricilla Bilavendran. All rights reserved. Built by <a href="https://os2studio.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#e94a6a'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">OS2 Studio</a>.</p>
+      <p style="font-size:0.74rem;color:rgba(255,255,255,0.38);margin:0;">© 2026 Pricilla Bilavendran. All rights reserved. Built with ❤️ by <a href="https://os2studio.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.5);text-decoration:none;" onmouseover="this.style.color='#e94a6a'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">OS2 Studio</a>.</p>
       <div style="display:flex;gap:1.5rem;">
         <a href="#" style="font-size:0.74rem;color:rgba(255,255,255,0.38);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Privacy</a>
         <a href="#" style="font-size:0.74rem;color:rgba(255,255,255,0.38);text-decoration:none;" onmouseover="this.style.color='rgba(255,255,255,0.8)'" onmouseout="this.style.color='rgba(255,255,255,0.38)'">Terms</a>
@@ -1679,7 +1715,25 @@ toggle.addEventListener('click', () => {
   html.setAttribute('data-theme', next);
   localStorage.setItem('pb-theme', next);
   toggle.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  applyLogoBlend(next);
 });
+// Apply on load
+applyLogoBlend(saved);
+
+/* ── LOGO BLEND MODE ────────────────────── */
+function applyLogoBlend(theme) {
+  const navLogo  = document.getElementById('navLogo');
+  const footLogo = document.getElementById('footerLogo');
+  if (navLogo) {
+    navLogo.style.mixBlendMode = theme === 'dark' ? 'lighten' : 'multiply';
+    navLogo.style.filter       = theme === 'dark' ? 'brightness(1.15) saturate(1.1)' : 'none';
+  }
+  // Footer always on dark bg
+  if (footLogo) {
+    footLogo.style.mixBlendMode = 'screen';
+    footLogo.style.filter       = 'brightness(1.2) saturate(1.1)';
+  }
+}
 
 /* ── NAV SCROLL ─────────────────────────── */
 const nav = document.getElementById('nav');
@@ -2013,6 +2067,43 @@ sections.forEach(s => activeObs.observe(s));
     }
   }, { passive: true });
 
+})();
+
+
+/* ── BUTTERFLY TOGGLE ───────────────────── */
+(function() {
+  const btn    = document.getElementById('butterflyToggle');
+  const canvas = document.getElementById('butterflyCanvas');
+  if (!btn || !canvas) return;
+
+  let on = localStorage.getItem('pb-butterflies') !== 'off';
+
+  function setState() {
+    if (on) {
+      canvas.style.opacity = '1';
+      btn.classList.add('on');
+      btn.classList.remove('off');
+      btn.setAttribute('aria-label', 'Turn off butterflies');
+      btn.setAttribute('title',      'Butterflies ON — click to turn off');
+    } else {
+      canvas.style.opacity = '0';
+      btn.classList.remove('on');
+      btn.classList.add('off');
+      btn.setAttribute('aria-label', 'Turn on butterflies');
+      btn.setAttribute('title',      'Butterflies OFF — click to turn on');
+    }
+  }
+
+  btn.addEventListener('click', () => {
+    on = !on;
+    localStorage.setItem('pb-butterflies', on ? 'on' : 'off');
+    setState();
+    // Spring wiggle
+    btn.style.transform = 'scale(1.3) rotate(25deg)';
+    setTimeout(() => { btn.style.transform = ''; }, 320);
+  });
+
+  setState();
 })();
 
 </script>
